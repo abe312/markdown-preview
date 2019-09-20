@@ -1,24 +1,26 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Provider } from 'react-redux';
+
+import Header from './components/Header';
+// import Footer from './components/Footer';
+import MdPreview from './containers/MdPreview';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import configureStore from './store';
+
+const store = configureStore();
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <>
+        <Provider store={store}>
+          <Header />
+          <MdPreview />
+          {/* <Footer /> */}
+        </Provider>
+      </>
     </div>
   );
 }
